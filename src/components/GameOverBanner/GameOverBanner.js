@@ -1,23 +1,12 @@
 import React from "react";
+import WonBanner from "../WonBanner/WonBanner";
+import LostBanner from "../LostBanner/LostBanner";
 
 function GameOverBanner({ gameStatus, numOfGuess, answer }) {
   if (gameStatus === "won") {
-    return (
-      <div className="happy banner">
-        <p>
-          <strong>Congratulations!</strong> Got it in{` `}
-          <strong>{numOfGuess} guesses</strong>.
-        </p>
-      </div>
-    );
+    return <WonBanner numOfGuess={numOfGuess} />;
   } else if (gameStatus === "lost") {
-    return (
-      <div className="sad banner">
-        <p>
-          Sorry, the correct answer is <strong>{answer}</strong>.
-        </p>
-      </div>
-    );
+    return <LostBanner answer={answer} />;
   }
 }
 
